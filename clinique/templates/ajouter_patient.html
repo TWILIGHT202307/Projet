@@ -1,0 +1,58 @@
+{% include "navigateur.html" %}
+{% load static %}
+<!DOCTYPE html>
+
+{% load crispy_forms_tags %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body >
+        <main>
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-12">
+                        <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{% static 'img/P2.jpg' %}" class="img-fluid" alt="">
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img src="{% static 'img/P1.jpeg' %}" class="img-fluid" alt="">
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img src="{% static 'img/P3.jpg' %}" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="heroText d-flex flex-column justify-content-center">
+
+                            <p> <strong>ajouter un patient</strong></p>
+                            <p> date consultation peut être aussi celui de l hospitalisation ou de l'examination</p>
+                            <form method="post">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                                <br>
+                                <button type="submit">Enregistrer</button>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+<main>
+    {% include "footer.html" %}
+        <script src="" async defer></script>
+    </body>
+</html>

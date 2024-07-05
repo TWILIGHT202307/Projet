@@ -1,0 +1,21 @@
+<!-- changer_patient_salle.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Changer la salle du patient</title>
+</head>
+<body>
+    <h1>Changer la salle du patient {{ patient }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="nouvelle_salle">Sélectionnez une nouvelle salle :</label>
+        <select name="nouvelle_salle" id="nouvelle_salle">
+            {% for salle in salles_disponibles %}
+                <option value="{{ salle.nouvelle_salle_id }}">{{ salle.nom }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Changer la salle</button>
+    </form>
+</body>
+</html>

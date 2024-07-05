@@ -1,0 +1,440 @@
+
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>TTG Network Clinique</title>
+
+        <!-- CSS FILES -->        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/owl.carousel.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/owl.theme.default.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/templatemo-medic-care.css' %}" rel="stylesheet">
+
+    </head>
+    <body id="page-top">
+        
+        <nav class="navbar navbar-expand-sm bg-light navbar-light">
+            <div class="container-fluid">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                  <img src="{% static 'img/logoC.jpg' %}" alt="Logo" style="width:40px;" class="rounded-pill"> 
+                </a>
+              </div>
+              {% if user.is_authenticated %}
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'clinique:product_list' %}">Produits</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'clinique:sale_list' %}">vente</a>
+                  </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="{% url 'clinique:liste_patient' %}">Patients</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'clinique:salle_list' %}">Salle</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'accounts:logout'%}">Deconnexion</a>
+                </li>
+            </ul>
+                {% else %}
+                
+               
+                <a class="nav-link" href="{%url 'accounts:login'%}">Connexion</a>
+                <a class="nav-link" href="{% url 'accounts:register'%}">Inscription</a>
+               
+                {% endif %}
+            </div>
+          </nav>
+        </header>
+
+
+
+
+        <nav class="navbar navbar-expand-lg bg-light fixed-top shadow-lg">
+            <div class="container">
+                <a class="navbar-brand mx-auto d-lg-none" href="index.html">
+                    TTG Network Clinique
+                    <strong class="d-block">Spécialiste de la santé</strong>
+                </a>
+
+
+                </div>
+
+            </div>
+        </nav>
+
+
+
+
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-12">
+                        <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{% static 'img/slider/portrait-successful-mid-adult-doctor-with-crossed-arms.jpg' %}" class="img-fluid" alt="">
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img src="{% static 'img/slider/young-asian-female-dentist-white-coat-posing-clinic-equipment.jpg' %}" class="img-fluid" alt="">
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img src="{% static 'img/slider/doctor-s-hand-holding-stethoscope-closeup.jpg' %}" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="heroText d-flex flex-column justify-content-center">
+
+                            <h1 class="mt-auto mb-2">
+                                Meilleur
+                                <div class="animated-info">
+                                    <span class="animated-item">Santé</span>
+                                    <span class="animated-item">Jour</span>
+                                    <span class="animated-item">Vie</span>
+                                </div>
+                            </h1>
+
+                            <p class="mb-4">Allier la force du groupe Ramsay Générale de Santé et la tradition de l'excellence : telle est la culture de la clinique Océane, au profit d'une prise en charge complète et individualisée.</p>
+
+                            <div class="heroLinks d-flex flex-wrap align-items-center">
+                                <a class="custom-link me-4" href="#about" data-hover="Learn More">voir plus</a>
+
+                                <p class="contact-phone mb-0"><i class="bi-phone"></i>+242-06-520-65-59</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding" id="about">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <h2 class="mb-lg-3 mb-3">recontrer le Dr. Tathy</h2>
+
+                        <p>Garantir un service médical optimal en s'appuyant sur des prises en charges reconnues et innovantes ainsi que sur le savoir-faire professionnel et les qualités humaines de son équipe soignante</p>
+
+                        <p></p>
+                    </div>
+
+                    <div class="col-lg-4 col-md-5 col-12 mx-auto">
+                        <div class="featured-circle bg-white shadow-lg d-flex justify-content-center align-items-center">
+                            <p class="featured-text"><span class="featured-number">12</span> ans<br> d'expérience</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-6 ps-0">
+                        <img src="{% static 'img/gallery/medium-shot-man-getting-vaccine.jpg' %}" class="img-fluid galleryImage" alt="get a vaccine" title="get a vaccine for yourself">
+                    </div>
+
+                    <div class="col-lg-6 col-6 pe-0">
+                        <img src="{% static 'img/gallery/female-doctor-with-presenting-hand-gesture.jpg' %}" class="img-fluid galleryImage" alt="wear a mask" title="wear a mask to protect yourself">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding pb-0" id="timeline">
+            <div class="container">
+                <div class="row">
+
+                    <h2 class="text-center mb-lg-5 mb-4">Notre chronologie</h2>
+                    
+                    <div class="timeline">
+                        <div class="row g-0 justify-content-end justify-content-md-around align-items-start timeline-nodes">
+                            <div class="col-9 col-md-5 me-md-4 me-lg-0 order-3 order-md-1 timeline-content bg-white shadow-lg">
+                                <h3 class=" text-light">La vaccination</h3>
+
+                                <p>Depuis la pandemie de 2019 nous proposons des services comme la vaccination contre le covid mais aussi contre divers épidemie tiers</p>
+                            </div>
+
+                            <div class="col-3 col-sm-1 order-2 timeline-icons text-md-center">
+                                <i class="bi-patch-check-fill timeline-icon"></i>
+                            </div>
+
+                            <div class="col-9 col-md-5 ps-md-3 ps-lg-0 order-1 order-md-3 py-4 timeline-date">
+                                <time>2019-07-31</time>
+                            </div>
+                        </div>
+
+                        <div class="row g-0 justify-content-end justify-content-md-around align-items-start timeline-nodes my-lg-5 my-4">
+                            <div class="col-9 col-md-5 ms-md-4 ms-lg-0 order-3 order-md-1 timeline-content bg-white shadow-lg">
+                                <h3 class=" text-light">Consulter votre santé</h3>
+
+                                <p>Nous proposons des services de consulation de qualité et a bas prix</p>
+                            </div>
+
+                            <div class="col-3 col-sm-1 order-2 timeline-icons text-md-center">
+                                <i class="bi-book timeline-icon"></i>
+                            </div>
+
+                            <div class="col-9 col-md-5 pe-md-3 pe-lg-0 order-1 order-md-3 py-4 timeline-date">
+                                <time>2017-07-15</time>
+                            </div>
+                        </div>
+
+                        <div class="row g-0 justify-content-end justify-content-md-around align-items-start timeline-nodes">
+                            <div class="col-9 col-md-5 me-md-4 me-lg-0 order-3 order-md-1 timeline-content bg-white shadow-lg">
+                                <h3 class=" text-light">Infirmières certifiées</h3>
+
+                                <p></p>
+                            </div>
+
+                            <div class="col-3 col-sm-1 order-2 timeline-icons text-md-center">
+                                <i class="bi-file-medical timeline-icon"></i>
+                            </div>
+
+                            <div class="col-9 col-md-5 ps-md-3 ps-lg-0 order-1 order-md-3 py-4 timeline-date">
+                                <time>2016-06-28</time>
+                            </div>
+                        </div>
+
+                        <div class="row g-0 justify-content-end justify-content-md-around align-items-start timeline-nodes my-lg-5 my-4">
+                            <div class="col-9 col-md-5 ms-md-4 ms-lg-0 order-3 order-md-1 timeline-content bg-white shadow-lg">
+                                <h3 class=" text-light">Examens</h3>
+
+                                <p class="mb-0 pb-0">Nous proposons plusieurs examens dans differentes domaine de la medecine</p>
+                                
+                                
+                            </div>
+
+                            <div class="col-3 col-sm-1 order-2 timeline-icons text-md-center">
+                                <i class="bi-globe timeline-icon"></i>
+                            </div>
+
+                            <div class="col-9 col-md-5 pe-md-3 pe-lg-0 order-1 order-md-3 py-4 timeline-date">
+                                <time>2016-05-30</time>
+                            </div>
+                        </div>
+
+                        <div class="row g-0 justify-content-end justify-content-md-around align-items-start timeline-nodes">
+                            <div class="col-9 col-md-5 me-md-4 me-lg-0 order-3 order-md-1 timeline-content bg-white shadow-lg">
+                                <h3 class=" text-light">Soins infirmiers indépendants</h3>
+
+                                <p>.</p>
+                            </div>
+
+                            <div class="col-3 col-sm-1 order-2 timeline-icons text-md-center">
+                                <i class="bi-person timeline-icon"></i>
+                            </div>
+
+                            <div class="col-9 col-md-5 ps-md-3 ps-lg-0 order-1 order-md-3 py-4 timeline-date">
+                                <time>2017-01-18</time>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding pb-0" id="reviews">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-12">
+                        <h2 class="text-center mb-lg-5 mb-4">Nos Patients</h2>
+
+                        <div class="owl-carousel reviews-carousel">
+
+                            <figure class="reviews-thumb d-flex flex-wrap align-items-center rounded">
+                                <div class="reviews-stars">
+                                    <i class="bi-star-fill"></i>
+                                    <i class="bi-star-fill"></i>
+                                    <i class="bi-star-fill"></i>
+                                    <i class="bi-star-fill"></i>
+                                    <i class="bi-star"></i>
+                                </div>
+
+                                <p class="text-primary d-block mt-2 mb-0 w-100"><strong>Meilleurs soins de santé</strong></p>
+
+                                <p class="reviews-text w-100">Phasellus ligula ante, tempus ac imperdiet ut, mattis ac nibh. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+
+                                <img src="{% static 'img/reviews/beautiful-woman-face-portrait-brown-background.jpeg' %}" class="img-fluid reviews-image" alt="">
+
+                                <figcaption class="ms-4">
+                                    <strong>Marie</strong>
+
+                                    <span class="text-muted">Patient</span>
+                                </figcaption>
+                            </figure>
+
+                            <figure class="reviews-thumb d-flex flex-wrap align-items-center rounded">
+                                <div class="reviews-stars">
+                                    <i class="bi-star-fill"></i>
+                                    <i class="bi-star-fill"></i>
+                                    <i class="bi-star-fill"></i>
+                                    <i class="bi-star-fill"></i>
+                                    <i class="bi-star"></i>
+                                </div>
+
+                                <p class="text-primary d-block mt-2 mb-0 w-100"><strong>Le médecin se soucie de tout le monde !</strong></p>
+
+                                <p class="reviews-text w-100">Donec in elementum orci, nec posuere ligula. Quisque vulputate diam et ullamcorper ullamcorper. Pellentesque vestibulum neque at leo fermentum mattis.</p>
+
+                                <img src="{% static 'img/reviews/senior-man-wearing-white-face-mask-covid-19-campaign-with-design-space.jpeg' %}" class="img-fluid reviews-image" alt="">
+
+                                <figcaption class="ms-4">
+                                    <strong>Ben Walker</strong>
+
+                                    <span class="text-muted">Récupéré</span>
+                                </figcaption>
+                            </figure>
+
+                            <figure class="reviews-thumb d-flex flex-wrap align-items-center rounded">
+                                <div class="reviews-stars">
+                                    <i class="bi-star-fill"></i>
+                                    <i class="bi-star-fill"></i>
+                                    <i class="bi-star-fill"></i>
+                                    <i class="bi-star-fill"></i>
+                                    <i class="bi-star-fill"></i>
+                                </div>
+
+                                <p class="text-primary d-block mt-2 mb-0 w-100"><strong>Meilleurs services!</strong></p>
+
+                                <p class="reviews-text w-100">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec sit amet velit vitae purus aliquam efficitur.</p>
+
+                                <img src="{% static 'img/reviews/portrait-british-woman.jpeg" class="img-fluid reviews-image' %}" alt="">
+
+                                <figcaption class="ms-4">
+                                    <strong>Laura Zono</strong>
+
+                                    <span class="text-muted">Nouveau patient</span>
+                                </figcaption>
+                            </figure>
+
+                            <figure class="reviews-thumb d-flex flex-wrap align-items-center rounded">
+                                <div class="reviews-stars">
+                                    <i class="bi-star-fill"></i>
+                                    <i class="bi-star-fill"></i>
+                                    <i class="bi-star-fill"></i>
+                                    <i class="bi-star"></i>
+                                    <i class="bi-star"></i>
+                                </div>
+
+                                <p class="text-primary d-block mt-2 mb-0 w-100"><strong>Meilleurs conseils</strong></p>
+
+                                <p class="reviews-text w-100">Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+                                <img src="{% static 'img/reviews/woman-wearing-mask-face-closeup-covid-19-green-background.jpeg' %}" class="img-fluid reviews-image" alt="">
+
+                                <figcaption class="ms-4">
+                                    <strong>Rosey</strong>
+
+                                    <span class="text-muted">Presque récupéré</span>
+                                </figcaption>
+                            </figure>
+                           
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer section-padding" id="contact">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-5 me-auto col-12">
+                    <h5 class="mb-lg-4 mb-3">Heures d’ouverture</h5>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex">
+                            Dimanche : Fermé
+                        </li>
+
+                        <li class="list-group-item d-flex">
+                            Lundi, Mardi - Vendredi
+                            <span>8:00 - 22:30</span>
+                        </li>
+
+                        <li class="list-group-item d-flex">
+                            Samedi
+                            <span>10:30 - 20:00 </span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6 col-12 my-4 my-lg-0">
+                    <h5 class="mb-lg-4 mb-3">Notre clinique</h5>
+
+                    <p><a href="mailto:hello@company.co">clinique@company.com</a><p>
+
+                    <p>123 Boulevard charles de Gaule , Brazzaville, CA 92123</p>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12 ms-auto">
+                    <h5 class="mb-lg-4 mb-3">Reseaux sociaux</h5>
+
+                    <ul class="social-icon">
+                        <li><a href="#" class="social-icon-link bi-facebook"></a></li>
+
+                        <li><a href="#" class="social-icon-link bi-twitter"></a></li>
+
+                        <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+
+                        <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-12 ms-auto mt-4 mt-lg-0">
+                    <p class="copyright-text">Copyright © Medic Care 2024
+                    <br><br> <a href="#" target="_parent">TTG Network clinique</a></p>
+                </div>
+
+            </div>
+        </section>
+    </footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/scrollspy.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+
+
+
+       
+    </body>
+</html>

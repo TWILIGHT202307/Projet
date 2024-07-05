@@ -1,0 +1,46 @@
+{% include "navigateur.html" %}
+{% load static %}
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer une salle</title>
+</head>
+<body>
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12">
+                    <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{% static 'img/P2.jpg' %}" class="img-fluid" alt="">
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="{% static 'img/P1.jpeg' %}" class="img-fluid" alt="">
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="{% static 'img/P3.jpg' %}" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    
+                        
+    </section>
+
+    <div class="heroText d-flex flex-column justify-content-center">
+        <h1>Créer une nouvelle salle</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}  <!-- Affiche les champs du formulaire -->
+            <input type="submit" value="Créer">
+        </form>
+    </div>
+    {% include "footer.html" %}
+</body>
+</html>

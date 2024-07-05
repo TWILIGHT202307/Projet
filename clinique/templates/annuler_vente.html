@@ -1,0 +1,20 @@
+<!-- annuler_vente.html -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annuler la vente</title>
+</head>
+<body>
+    <h1>Annuler la vente</h1>
+
+    <p>Êtes-vous sûr de vouloir annuler la vente du produit "{{ vente.produit.nom }}" ?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmer l'annulation</button>
+    </form>
+</body>
+</html>

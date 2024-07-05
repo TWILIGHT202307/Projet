@@ -1,0 +1,19 @@
+{% include "navigateur.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des ventes</title>
+</head>
+<body>
+    <h1>Liste des ventes</h1>
+    <ul class="list-group list-group-flush">
+        {% for sale in sales %}
+        <li class="list-group-item">{{ sale.product }} - {{ sale.quantity }} vendu(s) <a href="{% url 'clinique:annuler_vente' sale.id %}"><button class="btn-btn-info">supprimer</button></a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'clinique:profits' %}"><button class="btn-btn-info">totale des ventes</button></a>
+    {% include "footer.html" %}
+</body>
+</html>

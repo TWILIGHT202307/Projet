@@ -1,0 +1,38 @@
+{% include "navigateur.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport par mois</title>
+</head>
+<body>
+    <div class="container" style="margin-top:50px;" >
+    <h1>Rapport par mois</h1>
+    <div class="col-lg-10">
+
+    <table class="table table-striped-columns">
+        <thead>
+            <tr>
+                <th>Mois</th>
+                <th>Consulté</th>
+                <th>Hospitalisé</th>
+                <th>Examiné</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for month, stats in stats_par_mois.items %}
+                <tr>
+                    <td>{{ month }}</td>
+                    <td>{{ stats.consulte|default:0 }}</td>
+                    <td>{{ stats.hospitalise|default:0 }}</td>
+                    <td>{{ stats.examine|default:0 }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table></div></div>
+    {% include "footer.html" %}
+</body>
+</html>

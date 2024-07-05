@@ -1,0 +1,24 @@
+{% include "navigateur.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de la salle {{ salle.nom }}</title>
+</head>
+<body>
+    <h1>Détails de la salle {{ salle.nom }}</h1>
+    <p>Capacité maximale : {{ salle.capacite_max }}</p>
+    <p>Total des patients: {{ salle.patients_actuels }}</p>
+
+    <ul>
+        {% for patient in salle.patients.all %}
+            <li>{{ patient.nom }} ({{ patient.date_consultation }}) - {{ patient.statut }} </li>
+            <a href="{% url 'clinique:supprime_salle_p' salle.nouvelle_salle_id %}" class="update-btn"><button type="button" class="btn btn-success">changer</button></a>
+        {% endfor %}
+    </ul>
+    {% include "footer.html" %}
+</body>
+</html>

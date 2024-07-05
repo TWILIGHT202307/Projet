@@ -1,0 +1,43 @@
+{% include "navigateur.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des salles d'hôpital</title>
+</head>
+<body>
+    <div class="container" style="margin-top:50px;" >
+
+        <h2>Liste des Salles</h2>
+        <div class="col-lg-10">
+<table class="table table-striped-columns">
+<thead>
+    <tr>
+        <th>Nom</th>
+        <th>Statut de la salle</th>
+        <th>ajouter un patient</th>
+        <th>detail de la salle</th>
+        <th>Supprimer</th>
+    </tr>
+</thead>
+<tbody>
+    {% for salle in salles %}
+    
+    <tr>
+        <td>{{ salle.nom }}</td>
+        <td>{% if salle.est_pleine %}(Pleine){% else %}(Libre){% endif %}</td>
+        <td><a href="{% url 'clinique:salle_ajout_p' salle.nouvelle_salle_id %}" class="update-btn"><button type="button" class="btn btn-primary">ajouter un patient</button></a></td>
+        <td><a href="{% url 'clinique:salle_detail' salle.nouvelle_salle_id %}"><button type="button" class="btn btn-warning">detail de la salle</button></a></td>
+        <td><a href="{% url 'clinique:supprime_salle_p' salle.nouvelle_salle_id %}" class="delete-btn"><button type="button" class="btn btn-danger">supprimer</button></a></td>
+    </tr>
+
+    {% endfor %}
+</tbody>
+</table></div></div>
+<td><a href="{% url 'clinique:creer_salle' %}" class="update-btn"><button type="button" class="btn btn-primary">ajouter un patient</button></a></td>
+{% include "footer.html" %}
+</body>
+</html>

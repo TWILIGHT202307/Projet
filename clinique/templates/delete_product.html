@@ -1,0 +1,19 @@
+{% include "navigateur.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supprimer le produit</title>
+</head>
+<body>
+    <h1>Supprimer le produit</h1>
+    <p>Êtes-vous sûr de vouloir supprimer le produit {{ product.name }} ?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmer la suppression</button>
+    </form>
+    {% include "footer.html" %}
+</body>
+</html>
